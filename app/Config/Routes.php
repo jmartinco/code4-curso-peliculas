@@ -10,3 +10,4 @@ use CodeIgniter\Router\RouteCollection;
 //$routes->get('/update/(:any)/(:num)','Home::update/$1/$2');
 
 $routes->presenter('pelicula');
+$routes->presenter('categoria');
