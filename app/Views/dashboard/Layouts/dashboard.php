@@ -9,9 +9,17 @@
 </head>
 
 <body>
-    <h1><?= $this->renderSection('header') ?> </h1>
-    <?= view('partials/_session') ?>
-    <?= $this->renderSection('contenido') ?>
+    <div class="container">
+        <div class="d-flex justify-content-center mt-5">
+            <div class="card shadow-lg" style="max-width: 900px;">
+                <div class="card-body text-justify">
+                    <h1><?= $this->renderSection('header') ?> </h1>
+                    <?= view('partials/_session') ?>
+                    <?= $this->renderSection('contenido') ?>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
