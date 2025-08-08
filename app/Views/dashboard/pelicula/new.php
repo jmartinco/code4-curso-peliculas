@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <form action="/categoria/create" method="post">
-        <?= view('categoria/_form', ['op' => 'Crear']) ?>
+    <form action="/dashboard/pelicula/create" method="post">
+        <?= view('dashboard/pelicula/_form', ['op' => 'Crear']) ?>
     </form>
 </body>
 

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Dashboard;
 
+use App\Controllers\BaseController;
 use App\Models\CategoriaModel;
 
 class Categoria extends BaseController
@@ -10,7 +11,7 @@ class Categoria extends BaseController
     {
 
         $categoriaModel = new CategoriaModel();
-        echo view('categoria/index', ['categorias' => $categoriaModel->findAll()]);
+        echo view('dashboard/categoria/index', ['categorias' => $categoriaModel->findAll()]);
     }
 
     public function create()
@@ -19,12 +20,12 @@ class Categoria extends BaseController
         $categoriaModel->insert([
             'titulo' => $this->request->getPost('titulo')
         ]);
-        echo 'Creado correctamente';
+        return redirect()->to('/dashboard/categoria')->with('message', 'Creado correctamente');
     }
 
     public function new()
     {
-        echo view('categoria/new', ['categoria' => [
+        echo view('dashboard/categoria/new', ['categoria' => [
             'titulo' => ''
         ]]);
     }
@@ -34,7 +35,7 @@ class Categoria extends BaseController
         $categoriaModel = new CategoriaModel();
 
         echo view(
-            'categoria/show',
+            'dashboard/categoria/show',
             ['categoria' => $categoriaModel->find($id)]
         );
     }
@@ -43,7 +44,7 @@ class Categoria extends BaseController
     {
         $categoriaModel = new CategoriaModel();
         echo view(
-            'categoria/edit',
+            'dashboard/categoria/edit',
             ['categoria' => $categoriaModel->find($id)]
         );
     }
@@ -54,13 +55,13 @@ class Categoria extends BaseController
         $categoriaModel->update($id, [
             'titulo' => $this->request->getPost('titulo')
         ]);
-        echo 'Actualizado correctamente';
+        return redirect()->to('/dashboard/categoria')->with('message', 'Actualizado correctamente');
     }
 
     public function delete($id)
     {
         $categoriaModel = new CategoriaModel();
         $categoriaModel->delete($id);
-        echo 'Eliminado correctamente';
+        return redirect()->to('/dashboard/categoria')->with('message', 'Eliminado correctamente');
     }
 }

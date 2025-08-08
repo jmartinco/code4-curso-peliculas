@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Controllers;
+namespace App\Controllers\Dashboard;
 
+use App\Controllers\BaseController;
 use App\Models\PeliculaModel;
 
 class Pelicula extends BaseController
@@ -11,7 +12,7 @@ class Pelicula extends BaseController
         $peliculaModel = new PeliculaModel();
 
         echo view(
-            'index',
+            'dashboard/pelicula/index',
             ['peliculas' => $peliculaModel->findAll()]
         );
     }
@@ -22,11 +23,11 @@ class Pelicula extends BaseController
             'titulo' => $this->request->getPost('titulo'),
             'description' => $this->request->getPost('description'),
         ]);
-        echo 'Creado correctamente';
+        return redirect()->to('/dashboard/pelicula')->with('message', 'Creado correctamente');
     }
     public function new()
     {
-        echo view('pelicula/new', ['pelicula' => [
+        echo view('dashboard/pelicula/new', ['pelicula' => [
             'titulo' => '',
             'description' => ''
         ]]);
@@ -36,7 +37,7 @@ class Pelicula extends BaseController
         $peliculaModel = new PeliculaModel();
 
         echo view(
-            'pelicula/show',
+            'dashboard/pelicula/show',
             ['pelicula' => $peliculaModel->find($id)]
         );
     }
@@ -44,7 +45,7 @@ class Pelicula extends BaseController
     {
         $peliculaModel = new PeliculaModel();
         echo view(
-            'pelicula/edit',
+            'dashboard/pelicula/edit',
             ['pelicula' => $peliculaModel->find($id)]
         );
     }
@@ -55,12 +56,12 @@ class Pelicula extends BaseController
             'titulo' => $this->request->getPost('titulo'),
             'description' => $this->request->getPost('description'),
         ]);
-        echo 'Actualizado correctamente';
+        return redirect()->to('/dashboard/pelicula')->with('message', 'Actualizado correctamente');
     }
     public function delete($id)
     {
         $peliculaModel = new PeliculaModel();
         $peliculaModel->delete($id);
-        echo 'Eliminado correctamente';
+        return redirect()->to('/dashboard/pelicula')->with('message', 'Eliminado correctamente');
     }
 }
