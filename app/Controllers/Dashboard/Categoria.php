@@ -9,7 +9,7 @@ class Categoria extends BaseController
 {
     public function index()
     {
-
+        //session()->set('key', 'value');
         $categoriaModel = new CategoriaModel();
         echo view('dashboard/categoria/index', ['categorias' => $categoriaModel->findAll()]);
     }
@@ -32,6 +32,7 @@ class Categoria extends BaseController
 
     public function show($id)
     {
+        session()->set('key', 'value');
         $categoriaModel = new CategoriaModel();
 
         echo view(

@@ -13,9 +13,11 @@
         <div class="d-flex justify-content-center mt-5">
             <div class="card shadow-lg" style="max-width: 1200px;">
                 <div class="card-body text-center">
+
                     <h1>
                         Listado de peliculas
                     </h1>
+                    <?= view('partials/_session') ?>
                     <a class="text-primary" href="/dashboard/pelicula/new">Crear</a>
                     <table class="table table table-striped">
                         <tr>

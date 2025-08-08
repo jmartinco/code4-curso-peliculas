@@ -16,6 +16,8 @@
                     <h1>
                         Listado de Categorias
                     </h1>
+                    <?= session('key')  ?>
+                    <?= view('partials/_session') ?>
                     <a class="text-primary" href="/dashboard/categoria/new">Crear</a>
                     <table class="table table table-striped">
                         <tr>

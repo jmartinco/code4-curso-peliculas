@@ -11,5 +11,5 @@ use CodeIgniter\Router\RouteCollection;
 
 $routes->group('dashboard', function ($routes) {
     $routes->presenter('pelicula', ['controller' => 'Dashboard\Pelicula']);
-    $routes->presenter('categoria', ['controller' => 'Dashboard\Categoria'],  ['except' => 'show']);
+    $routes->presenter('categoria', ['controller' => 'Dashboard\Categoria']);
 });
