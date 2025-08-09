@@ -21,13 +21,13 @@
     </tr>
     <?php foreach ($peliculas as $key => $p) : ?>
         <tr>
-            <td><?= $p['id'] ?></td>
-            <td><?= $p['titulo'] ?></td>
-            <td><?= $p['description'] ?></td>
+            <td><?= $p->id ?></td>
+            <td><?= $p->titulo ?></td>
+            <td><?= $p->description ?></td>
             <td>
-                <a href="/dashboard/pelicula/show/<?= $p['id'] ?>">Show</a>
-                <a href="/dashboard/pelicula/edit/<?= $p['id'] ?>">Editar</a>
-                <form action="/dashboard/pelicula/delete/<?= $p['id'] ?>" method="post" style="display:inline;">
+                <a href="/dashboard/pelicula/show/<?= $p->id ?>">Show</a>
+                <a href="/dashboard/pelicula/edit/<?= $p->id ?>">Editar</a>
+                <form action="/dashboard/pelicula/delete/<?= $p->id ?>" method="post" style="display:inline;">
                     <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta película?');" class="btn btn-link p-0 m-0 align-baseline">Eliminar</button>
                 </form>
             </td>

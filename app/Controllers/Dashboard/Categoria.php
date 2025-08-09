@@ -34,14 +34,13 @@ class Categoria extends BaseController
 
     public function new()
     {
-        echo view('dashboard/categoria/new', ['categoria' => [
-            'titulo' => ''
-        ]]);
+        echo view('dashboard/categoria/new', [
+            'categoria' => new CategoriaModel()
+        ]);
     }
 
     public function show($id)
     {
-        session()->set('key', 'value');
         $categoriaModel = new CategoriaModel();
 
         echo view(

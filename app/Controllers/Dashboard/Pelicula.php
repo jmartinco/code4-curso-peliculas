@@ -7,6 +7,9 @@ use App\Models\PeliculaModel;
 
 class Pelicula extends BaseController
 {
+    /**
+     * Display a list of movies
+     */
     public function index()
     {
         $peliculaModel = new PeliculaModel();
@@ -36,11 +39,14 @@ class Pelicula extends BaseController
     }
     public function new()
     {
-        echo view('dashboard/pelicula/new', ['pelicula' => [
-            'titulo' => '',
-            'description' => ''
-        ]]);
+        echo view('dashboard/pelicula/new', [
+            'pelicula' => new PeliculaModel()
+        ]);
     }
+    /*     * Show a specific movie by ID
+     *
+     * @param int $id
+     */
     public function show($id)
     {
         $peliculaModel = new PeliculaModel();

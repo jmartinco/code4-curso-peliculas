@@ -20,12 +20,12 @@
     </tr>
     <?php foreach ($categorias as $key => $p) : ?>
         <tr>
-            <td><?= $p['id'] ?></td>
-            <td><?= $p['titulo'] ?></td>
+            <td><?= $p->id ?></td>
+            <td><?= $p->titulo ?></td>
             <td>
-                <a href="/dashboard/categoria/show/<?= $p['id'] ?>">Show</a>
-                <a href="/dashboard/categoria/edit/<?= $p['id'] ?>">Editar</a>
-                <form action="/dashboard/categoria/delete/<?= $p['id'] ?>" method="post" style="display:inline;">
+                <a href="/dashboard/categoria/show/<?= $p->id ?>">Show</a>
+                <a href="/dashboard/categoria/edit/<?= $p->id ?>">Editar</a>
+                <form action="/dashboard/categoria/delete/<?= $p->id ?>" method="post" style="display:inline;">
                     <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta Categoria?');" class="btn btn-link p-0 m-0 align-baseline">Eliminar</button>
                 </form>
             </td>
