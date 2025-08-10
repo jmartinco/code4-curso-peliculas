@@ -9,6 +9,12 @@ use CodeIgniter\Router\RouteCollection;
 //$routes->get('/update/(:any)','Home::update/$1');
 //$routes->get('/update/(:any)/(:num)','Home::update/$1/$2');
 
+$routes->group('api',['namespace' => 'App\Controllers\Api'], function ($routes) { 
+    $routes->resource('pelicula');
+    $routes->resource('categoria');
+    // Add other API routes here
+});
+
 $routes->group('dashboard', function ($routes) {
     $routes->presenter('pelicula', ['controller' => 'Dashboard\Pelicula']);
     //Only testing
