@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Controllers\Api;
+
 use CodeIgniter\RESTful\ResourceController;
 
 class Categoria extends ResourceController
@@ -26,7 +28,7 @@ class Categoria extends ResourceController
     public function create()
     {
 
-         if ($this->validate('categorias')) {
+        if ($this->validate('categorias')) {
             $id = $this->model->insert([
                 'titulo' => $this->request->getPost('titulo')
             ]);
@@ -44,7 +46,7 @@ class Categoria extends ResourceController
             ]);
         } else {
             
-            if($this->validator->getError('titulo')){
+            if ($this->validator->getError('titulo')) {
                 return $this->respond($this->validator->getError('titulo'), 400);
             }
         
@@ -57,6 +59,7 @@ class Categoria extends ResourceController
     public function delete($id = null)
     {
         $this->model->delete($id);
+
         return $this->respondDeleted('ok');
     }
 }

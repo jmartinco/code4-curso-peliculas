@@ -1,9 +1,14 @@
 <?php
+
 namespace App\Controllers\Api;
+
 use CodeIgniter\RESTful\ResourceController;
 
 class Pelicula extends ResourceController
 {
+    /**
+     * @var \CodeIgniter\HTTP\IncomingRequest $request
+     */
     protected $modelName = 'App\Models\PeliculaModel';
     protected $format = 'json';
 
@@ -26,16 +31,19 @@ class Pelicula extends ResourceController
     public function create()
     {
 
-         if ($this->validate('peliculas')) {
+        if ($this->validate('peliculas')) {
             $id = $this->model->insert([
-                'titulo' => $this->request->getPost('titulo'),
-                'description' => $this->request->getPost('description'),
+                'titulo' => $this->request->getRawInput('titulo'),
+                'description' => $this->request->getRawInput('description'),
             ]);
         } else {
             return $this->respond($this->validator->getErrors(), 400);
-        }
 
-        return $this->respond($id);
+            return $this->respond($id);
+        }
+        if (!$id) {
+            return $this->fail('Failed to create Pelicula');
+        }
     }
     public function update($id = null)
     {
@@ -46,12 +54,12 @@ class Pelicula extends ResourceController
                 'description' => $this->request->getRawInput()['description']
             ]);
         } else {
-            
-            if($this->validator->getError('titulo')){
+
+            if ($this->validator->getError('titulo')) {
                 return $this->respond($this->validator->getError('titulo'), 400);
             }
-            
-            if($this->validator->getError('description')){
+
+            if ($this->validator->getError('description')) {
                 return $this->respond($this->validator->getError('description'), 400);
             }
 
