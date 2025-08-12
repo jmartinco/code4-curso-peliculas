@@ -7,7 +7,16 @@
 <h3>Imágenes</h3>
 <ul class="list-group">
     <?php foreach ($imagenes as $i) : ?>
-        <li class="list-group-item"><?= $i->imagen ?></li>
+        <li class="list-group-item">
+            <img src="<?= base_url('uploads/peliculas/' . $i->imagen) ?>" alt="<?= $i->imagen ?>" class="img-thumbnail" style="width: 200px; height: 200px;">
+            <form action="<?= route_to('pelicula.borrar_imagen', $i->id) ?>" method="post" class="d-inline">
+                <button type="submit" class="btn btn-outline-danger delete_imagen">Eliminar</button>
+            </form>
+            <form action="<?= route_to('pelicula.descargar_imagen', $i->id) ?>" method="post" class="d-inline">
+                <button type="submit" class="btn btn-outline-primary delete_imagen">Descargar</button>
+            </form>
+            <br>
+        </li>
     <?php endforeach; ?>
 </ul>
 

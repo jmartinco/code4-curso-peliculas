@@ -9,5 +9,5 @@ class ImagenModel extends Model
     protected $table            = 'imagenes';
     protected $primaryKey       = 'id';
     protected $allowedFields    = ['imagen', 'extension', 'data'];
-
+    protected $returnType       = 'object';
 }
