@@ -11,7 +11,7 @@ class CategoriaSeeder extends Seeder
     {
         //$this->db->table('Categorias');
         $categoriaModel = new CategoriaModel();
-        $categoriaModel->truncate();
+        $categoriaModel->where('id >', 0)->delete();
         for ($i=0; $i < 20 ; $i++) {
             $categoriaModel->insert(
                 [

@@ -9,17 +9,23 @@ use CodeIgniter\Router\RouteCollection;
 //$routes->get('/update/(:any)','Home::update/$1');
 //$routes->get('/update/(:any)/(:num)','Home::update/$1/$2');
 
-$routes->group('api',['namespace' => 'App\Controllers\Api'], function ($routes) { 
+$routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes) {
     $routes->resource('pelicula');
     $routes->resource('categoria');
     // Add other API routes here
 });
 
 $routes->group('dashboard', function ($routes) {
+    $routes->get('pelicula/etiqueta/(:num)', 'Dashboard\Pelicula::etiquetas/$1', ['as' => 'pelicula.etiquetas']);
+    $routes->post('pelicula/etiqueta/(:num)', 'Dashboard\Pelicula::etiquetas_post/$1', ['as' => 'pelicula.etiquetas']);
+    $routes->post('pelicula/(:num)/etiqueta/(:num)/delete', 'Dashboard\Pelicula::etiqueta_delete/$1/$2', ['as' => 'pelicula.etiqueta_delete']);
+
+
     $routes->presenter('pelicula', ['controller' => 'Dashboard\Pelicula']);
     //Only testing
     //$routes->get('usuario/create', '\App\Controllers\Web\Usuario::createUser');
     $routes->presenter('categoria', ['controller' => 'Dashboard\Categoria']);
+    $routes->presenter('etiqueta', ['controller' => 'Dashboard\Etiqueta']);
 });
 
 $routes->get('login', '\App\Controllers\Web\Usuario::login', ['as' => 'usuario.login']);

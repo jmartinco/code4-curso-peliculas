@@ -10,7 +10,7 @@
 
 <body>
 
-      <!-- Navbar con ancho igual al contenido -->
+    <!-- Navbar con ancho igual al contenido -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container" style="max-width: 900px;">
             <a class="navbar-brand" href="#">Dashboard</a>
@@ -18,7 +18,7 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -26,6 +26,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url('dashboard/categoria') ?>">Categorías</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('dashboard/etiqueta') ?>">Etiquetas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-danger" href="<?= base_url('logout') ?>">Logout</a>
