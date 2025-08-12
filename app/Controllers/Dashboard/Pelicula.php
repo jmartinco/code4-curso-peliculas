@@ -22,7 +22,8 @@ class Pelicula extends BaseController
 
         $data = [
             'peliculas' => $peliculaModel->select('peliculas.*, categorias.titulo as categoria')->join('categorias', 'categorias.id = peliculas.categoria_id')
-                ->findAll()
+                ->paginate(10),
+            'pager' => $peliculaModel->pager
         ];
 
         echo view(
@@ -189,7 +190,7 @@ class Pelicula extends BaseController
 
     private function asignar_imagen($peliculaId)
     {
-
+        helper('filesystem');
         if ($imagefile = $this->request->getFile('imagen')) {
             // upload
             if ($imagefile->isValid()) {
@@ -200,15 +201,15 @@ class Pelicula extends BaseController
 
 
                 if ($validated) {
-                    $imagenNombre = $imagefile->getRandomName();
+                    $imageNombre = $imagefile->getRandomName();
                     $ext = $imagefile->guessExtension();
                     //$imagefile->move(WRITEPATH . 'uploads/peliculas', $imagenNombre);
-                    $imagefile->move('../public/uploads/peliculas', $imagenNombre);
+                    $imagefile->move('../public/uploads/peliculas', $imageNombre);
                     $imagenModel = new ImagenModel();
                     $imagenId = $imagenModel->insert([
-                        'imagen' => $imagenNombre,
+                        'imagen' => $imageNombre,
                         'extension' => $ext,
-                        'data' => 'Pendiente',
+                        'data' => json_encode(get_file_info('../public/uploads/peliculas/' . $imageNombre))
                     ]);
 
                     $peliculaImagenModel = new PeliculaImagenModel();

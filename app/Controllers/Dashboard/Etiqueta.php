@@ -17,7 +17,8 @@ class Etiqueta extends BaseController
         $data = [
             'etiquetas' => $etiquetaModel->select('etiquetas.*, categorias.titulo as categoria')->join('categorias', 'categorias.id = etiquetas.categoria_id')
                 ->orderBy('etiquetas.id', 'DESC')
-                ->findAll()
+                ->paginate(10),
+            'pager' => $etiquetaModel->pager
         ];
 
         echo view(

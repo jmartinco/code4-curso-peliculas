@@ -11,7 +11,10 @@ class Categoria extends BaseController
     {
         //session()->set('key', 'value');
         $categoriaModel = new CategoriaModel();
-        echo view('dashboard/categoria/index', ['categorias' => $categoriaModel->findAll()]);
+        echo view('dashboard/categoria/index', [
+            'categorias' => $categoriaModel->paginate(10),
+            'pager' => $categoriaModel->pager
+        ]);
     }
 
     public function create()
