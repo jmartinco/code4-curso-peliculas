@@ -11,7 +11,7 @@
     Listado de Etiquetas
 </h1>
 
-<a class="text-primary" href="/dashboard/etiqueta/new">Crear</a>
+<a class="btn btn-outline-primary btn-lg mb-4" href="/dashboard/etiqueta/new">Crear</a>
 <table class="table table table-striped">
     <tr>
         <th scope="col">ID</th>
@@ -25,10 +25,10 @@
             <td><?= $e->titulo ?></td>
             <td><?= $e->categoria ?></td>
             <td>
-                <a href="/dashboard/etiqueta/show/<?= $e->id ?>">Show</a>
-                <a href="/dashboard/etiqueta/edit/<?= $e->id ?>">Editar</a>
+                <a href="/dashboard/etiqueta/show/<?= $e->id ?>" class="btn btn-outline-info btn-sm mt-1">Show</a>
+                <a href="/dashboard/etiqueta/edit/<?= $e->id ?>" class=" btn btn-outline-success btn-sm mt-1">Editar</a>
                 <form action="/dashboard/etiqueta/delete/<?= $e->id ?>" method="post" style="display:inline;">
-                    <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta etiqueta?');" class="btn btn-link p-0 m-0 align-baseline">Eliminar</button>
+                    <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta etiqueta?');" class="btn btn-outline-danger btn-sm mt-1">Eliminar</button>
                 </form>
             </td>
         </tr>

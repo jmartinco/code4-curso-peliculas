@@ -10,7 +10,7 @@
 <h1>
     Listado de Categorias
 </h1>
-<a class="text-primary" href="/dashboard/categoria/new">Crear</a>
+<a class="btn btn-outline-primary btn-lg mb-4" class="text-primary" href="/dashboard/categoria/new">Crear</a>
 <table class="table table table-striped">
     <tr>
         <th scope="col">ID</th>
@@ -23,10 +23,10 @@
             <td><?= $p->id ?></td>
             <td><?= $p->titulo ?></td>
             <td>
-                <a href="/dashboard/categoria/show/<?= $p->id ?>">Show</a>
-                <a href="/dashboard/categoria/edit/<?= $p->id ?>">Editar</a>
+                <a href="/dashboard/categoria/show/<?= $p->id ?>" class="btn btn-outline-info btn-sm mt-1">Show</a>
+                <a href="/dashboard/categoria/edit/<?= $p->id ?>" class=" btn btn-outline-success btn-sm mt-1">Editar</a>
                 <form action="/dashboard/categoria/delete/<?= $p->id ?>" method="post" style="display:inline;">
-                    <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta Categoria?');" class="btn btn-link p-0 m-0 align-baseline">Eliminar</button>
+                    <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta Categoria?');" class="btn btn-outline-danger btn-sm mt-1">Eliminar</button>
                 </form>
             </td>
         </tr>

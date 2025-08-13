@@ -11,7 +11,7 @@
     Listado de peliculas
 </h1>
 
-<a class="text-primary" href="/dashboard/pelicula/new">Crear</a>
+<a class="btn btn-outline-primary btn-lg mb-4" href="/dashboard/pelicula/new">Crear</a>
 <table class="table table table-striped">
     <tr>
         <th scope="col">ID</th>
@@ -27,11 +27,11 @@
             <td><?= $p->categoria ?></td>
             <td><?= $p->description ?></td>
             <td>
-                <a href="/dashboard/pelicula/show/<?= $p->id ?>">Show</a>
-                <a href="/dashboard/pelicula/edit/<?= $p->id ?>">Editar</a>
-                <a href="<?= route_to('pelicula.etiquetas', $p->id) ?>">Etiquetas</a>
+                <a href="/dashboard/pelicula/show/<?= $p->id ?>" class="btn btn-outline-info btn-sm mt-1">Show</a>
+                <a href="/dashboard/pelicula/edit/<?= $p->id ?>" class="btn btn-outline-success  btn-sm mt-1">Editar</a>
+                <a href="<?= route_to('pelicula.etiquetas', $p->id) ?>" class="btn btn-outline-secondary  btn-sm mt-1">Etiquetas</a>
                 <form action="/dashboard/pelicula/delete/<?= $p->id ?>" method="post" style="display:inline;">
-                    <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta película?');" class="btn btn-link p-0 m-0 align-baseline">Eliminar</button>
+                    <button type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta película?');" class="btn btn-outline-danger btn-sm mt-1">Eliminar</button>
                 </form>
             </td>
         </tr>

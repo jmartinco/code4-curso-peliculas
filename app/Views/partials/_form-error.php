@@ -1,6 +1,10 @@
 <?php if (session('validation')) : ?>
-    <div class="alert alert-danger" role="alert">
-        <?= session('validation')->listErrors() ?>
-    </div>
-    <br />
+
+    <?php foreach (session('validation')->getErrors() as $error): ?>
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <?= $error ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <?php endforeach; ?>
 <?php endif; ?>

@@ -3,7 +3,7 @@
 <form action="" method="post">
 
     <label for="categoria_id">Categoría</label>
-    <select onchange="" name="categoria_id" id="categoria_id" class="form-control">
+    <select onchange="" name="categoria_id" id="categoria_id" class="form-control mt-1 mb-1">
         <option value="">-- Seleccione --</option>
         <?php foreach ($categorias as $categoria): ?>
             <option <?= $categoria->id != $categoria_id ?: 'selected' ?> value="<?= $categoria->id ?>">
@@ -13,7 +13,7 @@
     </select>
 
     <label for="etiqueta_id">Etiquetas</label>
-    <select name="etiqueta_id" id="etiqueta_id" class="form-control">
+    <select name="etiqueta_id" id="etiqueta_id" class="form-control mt-1 mb-1">
         <option value="">-- Seleccione --</option>
         <?php foreach ($etiquetas as $etiqueta): ?>
             <option value="<?= $etiqueta->id ?>">
@@ -21,7 +21,7 @@
             </option>
         <?php endforeach; ?>
     </select>
-    <button type="submit" class="btn btn-outline-primary" id="send">Enviar</button>
+    <button type="submit" class="btn btn-outline-primary mt-1 mb-1" id="send">Enviar</button>
 </form>
 
 <script>
